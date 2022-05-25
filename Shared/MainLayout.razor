@@ -1,0 +1,110 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="column-layout master-view-container">
+    <IgbNavbar class="app-bar" master-view-scope>
+        <div slot="start">
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    dashboard
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div slot="end">
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    add_circle
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    share
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    notifications
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    search
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Variant="ButtonVariant.Flat" class="icon-button button" master-view-scope>
+                <span class="material-icons">
+                    account_circle
+                </span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div>Task Management</div>
+    </IgbNavbar>
+    <div class="row-layout group">
+        <div class="column-layout group_1">
+            <div class="row-layout group_2">
+                <div class="row-layout group_3">
+                    <IgbAvatar Initials="FP" Shape="AvatarShape.Circle" class="avatar" master-view-scope></IgbAvatar>
+                    <h6 class="h6">
+                        Fintech Project
+                    </h6>
+                    <IgbButton Variant="ButtonVariant.Flat" class="icon-button" @onclick="@(e => Dropdown?.Toggle(Button))" @ref="Button">
+                        <span class="material-icons">
+                            keyboard_arrow_down
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbDropdown @ref="Dropdown" class="dropdown" master-view-scope>
+                        <IgbDropdownHeader>
+                            Projects
+                        </IgbDropdownHeader>
+                        <IgbDropdownItem>
+                            Fintech Project
+                        </IgbDropdownItem>
+                        <IgbDropdownItem>
+                            Project Name 1
+                        </IgbDropdownItem>
+                        <IgbDropdownItem>
+                            Project Name 2
+                        </IgbDropdownItem>
+                        <IgbDropdownItem>
+                            Project Name 3
+                        </IgbDropdownItem>
+                    </IgbDropdown>
+                </div>
+                <span class="button-group">ButtonGroup not yet available in Blazor</span>
+            </div>
+            <div class="view-container">
+                @Body
+            </div>
+        </div>
+        <div class="column-layout group_4">
+            <span class="material-icons icon">
+                group_add
+            </span>
+            <IgbAvatar Src="assets/Avatar2.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar6.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar5.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar3.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar7.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar8.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar9.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+            <IgbAvatar Src="assets/Avatar10.png" Shape="AvatarShape.Circle" class="avatar_1" master-view-scope></IgbAvatar>
+        </div>
+    </div>
+    <span class="new-task-dialog">Dialog not yet available in Blazor</span>
+</div>
+
+@code {
+    private IgbButton? Button;
+    private IgbDropdown? Dropdown;
+    private void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}
